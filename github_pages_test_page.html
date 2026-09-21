@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Allotjament GitHub Pages</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between p-4 sm:p-6 lg:p-8">
+
+    <main class="max-w-3xl mx-auto w-full bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden my-auto transition-all">
+        
+        <!-- Header Banner -->
+        <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-8 text-white text-center relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-white">
+                <i class="fa-brands fa-github text-9xl"></i>
+            </div>
+            <div class="relative z-10">
+                <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Estat: Actiu
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Prova de GitHub Pages
+                </h1>
+                <p class="text-blue-100 mt-2 text-sm sm:text-base max-w-lg mx-auto">
+                    Aquesta pàgina confirma que el teu repositori està configurat correctament i publicat al web!
+                </p>
+            </div>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+            
+            <!-- Status Card -->
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800">
+                <div class="bg-emerald-500 text-white p-3 rounded-lg text-xl flex-shrink-0">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-base">L'allotjament funciona!</h3>
+                    <p class="text-xs sm:text-sm text-emerald-700">El teu servidor està servint HTML, CSS i imatges sense cap problema.</p>
+                </div>
+            </div>
+
+            <!-- Image Container -->
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-xs text-slate-500 px-1">
+                    <span class="font-medium"><i class="fa-regular fa-image mr-1"></i> Imatge de prova (Unsplash)</span>
+                    <span id="img-status" class="text-slate-400">Carregant...</span>
+                </div>
+                
+                <div class="relative rounded-xl overflow-hidden bg-slate-100 shadow-inner group aspect-video sm:aspect-[16/9]">
+                    <img 
+                        id="test-image"
+                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" 
+                        alt="Imatge de prova abstracta"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onload="imageLoaded()"
+                        onerror="imageError(this)"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <p class="text-white text-xs font-light">Renderitzat d'imatge dinàmic completat</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <button 
+                    onclick="reloadImage()" 
+                    class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-rotate text-xs transition-transform group-hover:rotate-180"></i>
+                    Canviar Imatge
+                </button>
+                <a 
+                    href="https://pages.github.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="w-full py-3 px-4 rounded-xl border border-slate-300 hover:border-slate-400 text-slate-700 text-sm font-semibold transition-all flex items-center justify-center gap-2 bg-white hover:bg-slate-50">
+                    Documentació GitHub Pages
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
+                </a>
+            </div>
+
+            <!-- Verification List -->
+            <div class="border-t border-slate-100 pt-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Comprovacions del repositori</h4>
+                <ul class="text-xs sm:text-sm space-y-2 text-slate-600">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-500"></i>
+                        <span>Fitxer anomenat <code>index.html</code> a la arrel.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-500"></i>
+                        <span>Estils CDN i recursos externs carregats correctament.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-500"></i>
+                        <span>Disseny adaptatiu per a mòbils, tauletes i ordinadors.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-400 py-4 mt-6">
+        Proving allotjament web &bull; Creat per a GitHub Pages
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        const imageStatus = document.getElementById('img-status');
+        const imgElement = document.getElementById('test-image');
+
+        const images = [
+            'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop'
+        ];
+
+        let currentIdx = 0;
+
+        function imageLoaded() {
+            imageStatus.textContent = 'Carregada correctament';
+            imageStatus.className = 'text-emerald-600 font-medium';
+        }
+
+        function imageError(img) {
+            imageStatus.textContent = 'Error (Utilitzant fallback)';
+            imageStatus.className = 'text-amber-600 font-medium';
+            // Fallback image using placehold.co
+            img.src = 'https://placehold.co/800x450/4f46e5/ffffff?text=Imatge+de+Prova+OK';
+        }
+
+        function reloadImage() {
+            imageStatus.textContent = 'Carregant...';
+            imageStatus.className = 'text-slate-400';
+            currentIdx = (currentIdx + 1) % images.length;
+            imgElement.src = images[currentIdx];
+        }
+    </script>
+</body>
+</html>
